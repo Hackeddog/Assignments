@@ -48,6 +48,13 @@
         <footer>
             <p>Lamsin</p>
         </footer>
+        <dialog id="dlgConfirm">
+            <form method="dialog">
+                <h4 id="dlgmsg"></h4>
+                <button class="btn1 rmv" id="btnConfirm" value="confirm">Confirm</button>
+                <button class="btn1 rmv" id="btnCancel" value="cancel">Cancel</button>
+            </form>
+        </dialog>
 
     <script>
     document.getElementById("calculate").addEventListener("click", 
@@ -96,10 +103,24 @@
     );
     document.getElementById("clear").addEventListener("click",
         function() {
-            document.getElementById("Input").value="";
-            document.getElementById("result").innerHTML="";
+            document.getElementById("dlgmsg").innerText = "Clear values?";
+            let dialog = document.getElementById("dlgConfirm");
+            dialog.showModal();
+
+            document.getElementById("btnConfirm").onclick = function() {
+                document.getElementById("Input").value = "";
+                document.getElementById("result1").innerHTML = "";
+                document.getElementById("result2").innerHTML = "";
+                document.getElementById("result3").innerHTML = "";
+            dialog.close();
+        };
+
+        document.getElementById("btnCancel").onclick = function() {
+            dialog.close();
+        };
         }
     );
+    
     </script>
 
     <!-- Load external JavaScript -->
