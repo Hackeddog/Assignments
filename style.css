@@ -329,6 +329,8 @@ dialog{
     border: 1px solid #112432;
     border-radius: 5px;
     text-align: center;
+    border: 1px solid #112432;
+    border-radius: 8px;
 }
 h4{
     padding: 10px;
