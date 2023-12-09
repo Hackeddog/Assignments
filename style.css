@@ -246,7 +246,7 @@ footer{
 .btn1, .btn2, .rmv{
     color: #415d6a;
 }
-.btn1:hover, .btn2:hover, .rmv:hover{
+.btn1:hover, .btn2:hover, .rmv:hover, .dlg:hover{
     color: #dfdbd8;
     
     background: #112432;
@@ -316,4 +316,21 @@ tbody{
     top: 145px;
     width: 150px;
     height: 0px;    
+}
+
+dialog{
+    background-color: #afb9bd;
+    position: absolute;
+    left: 400px;
+    top: 200px;
+    width: 720px;
+    height: 100px;
+    border-spacing: 0px;
+    border: 1px solid #112432;
+    border-radius: 5px;
+    text-align: center;
+}
+h4{
+    padding: 10px;
+    size: 5px;
 }
