@@ -64,7 +64,13 @@
 <footer>
     <p>Lamsin</p>
 </footer>
-
+<dialog id="dlgConfirm">
+    <form method="dialog">
+        <h4 id="dlgmsg"></h4>
+        <button class="btn1 rmv" id="btnConfirm" value="confirm">Confirm</button>
+        <button class="btn1 rmv" id="btnCancel" value="cancel">Cancel</button>
+    </form>
+</dialog>
 <script>
     var employeeArray = [];
 
@@ -92,31 +98,40 @@
     }
 
     function removeEmployee() {
-
         var todelete;
-
         let emnum = document.getElementById("Input").value;
 
-        todelete=confirm("Delete Employee No. "+emnum+"?");
+        document.getElementById("dlgmsg").innerText = "Delete Employee No. " + emnum + "?";
+        let dialog = document.getElementById("dlgConfirm");
+        dialog.showModal();
 
-        if(todelete){
+        document.getElementById("btnConfirm").onclick = function() {
+            let emnum = document.getElementById("Input").value;
             employeeArray.splice(emnum - 1, 1);
-        showTable();
-        }
+            showTable();
+            dialog.close();
+        };
 
+        document.getElementById("btnCancel").onclick = function() {
+            dialog.close();
+        };
     }
-     function cleartable(){
 
+    function cleartable(){
         var toclear;
+        document.getElementById("dlgmsg").innerText = "Delete all employees in the table?";
+        let dialog = document.getElementById("dlgConfirm");
+        dialog.showModal();
 
-        toclear=confirm("Delete all employee/s in the table?");
+        document.getElementById("btnConfirm").onclick = function() {
+            
+            in_employee();
+            dialog.close();
+        };
 
-        if (toclear) {
-
-             in_employee();
-
-        }
-
+        document.getElementById("btnCancel").onclick = function() {
+            dialog.close();
+        };
     }
 
     function showTable(){
